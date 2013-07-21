@@ -7,7 +7,7 @@ So lets load the data and the "NepalMapUtils" R file to get started.
 
 ## 0. Data preparation
 
-Lets load up the data and our map convenience functions. This works fine if you do a [setwd] to inside the "SmallAreaPoverty" folder within [NepalMaps](http://github.com/prabhasp/NepalMaps).
+Lets load up the data and our map convenience functions. This works fine if you do a [setwd](http://www.statmethods.net/interface/workspace.html) to inside the "SmallAreaPoverty" folder within [NepalMaps](http://github.com/prabhasp/NepalMaps).
 ```{r echo=T, comment=NA, fig.height=6, fig.width=10, cache=TRUE}
 poverty <- read.csv("SmallAreaPovertyEstimation.csv")
 source("../NepalMapUtils.R")
@@ -36,7 +36,7 @@ meanpoverty <- weighted.mean(poverty$PovertyIncidence, poverty$Population)
 npchoropleth(poverty, 'District', 'PovertyIncidence') + scale_fill_gradient2(low=muted('blue'), midpoint=meanpoverty, mid='white', high=muted('red'))
 ```
 
-In the second map, you can really see how (1) the far west and the western moutains are really hurting and (2) prosperity is pretty spatial: swaths of prosperity in the Kathmandu valley, the  Gandaki-Narayani anchal area (with Kaski (where Pokhara is) and Chitwan dominating), in the very east, and in Sarlahi / Mahottari (probably from Birgunj).
+In the second map, you can really see how (1) the far west and the western moutains are really hurting and (2) prosperity is pretty spatial: swaths of prosperity in the Kathmandu valley, the Pokhara-Chitwan area (and larger Gandaki / Lumbini zones), in the very east, and in Sarlahi / Mahottari (wonder why... these districts house neither Birgunj nor Janakpur).
 
 ## 2. Absolute poor (2011)
 
