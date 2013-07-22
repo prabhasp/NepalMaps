@@ -3,7 +3,7 @@
 Poverty by District in Nepal, mapped
 ---
 
-Chandan Sapkota, who one of my friend Bigyan calls the "Ezra Klein of Nepal", produces amazing analysis about Nepal, taking data sources from the obscure reports of government institutions and writing them up in accessible blog posts. When he posted about ["Poverty by District in Nepal"](http://sapkotac.blogspot.com/2013/07/poverty-by-district-in-nepal.html), I thought that I'd map the poverty, since it is hard for me to place all the districts in Nepal, and I wanted to see what the visual spread of poverty was. This html is generated automatically using R markdown; see the [git repository](https://github.com/prabhasp/NepalMaps/tree/gh-pages/Poverty) to see the data and to get the rmd file.
+Chandan Sapkota, who one of my friend Bigyan calls the "Ezra Klein of Nepal", produces amazing analysis about Nepal, taking data sources from the obscure reports of government institutions and writing them up in accessible blog posts. When he posted about ["Poverty by District in Nepal"](http://sapkotac.blogspot.com/2013/07/poverty-by-district-in-nepal.html), I thought that I'd map the poverty, since it is hard for me to place all the districts in Nepal, and I wanted to see what the visual spread of poverty was. This html is generated automatically using R markdown; see the [git repository](https://github.com/prabhasp/NepalMaps/tree/gh-pages/Poverty) to see the data and to get the rmd file. The git repository also contains a library in the making, NepalMapUtils, which has some convenience functions for making choropleth maps (of Nepal).
 
 ## 0. Data preparation
 
@@ -36,7 +36,7 @@ names(poverty11) <- c("District", "Population", "PovertyIncidence", "S.E-P.I.",
 ```
 
 
-And now the 2001 data, which has been modified to have the exact same columns already:
+And now we will also load the 2001 data, which has been modified to have the exact same column names already:
 
 
 ```r
@@ -104,13 +104,7 @@ npchoropleth(poverty, "District", "PovertyTenYrChange") + scale_fill_gradient2(l
     high = muted("red"))
 ```
 
-```
-Scale for 'fill' is already present. Adding another scale for 'fill',
-which will replace the existing scale.
-```
-
 ![plot of chunk unnamed-chunk-8](figure/unnamed-chunk-8.png) 
 
 
-The message here seems to be that most of the country has become less poor, with an exception of an icnrease in poverty in: Mustang / Manang, the Far Western Mountains, and in the central-eastern Terai (Parsa/Bara/Rautahat and Siraha/Saptari).
-
+The units here are in difference of percentage points; bigger negative numbers are better. The message here seems to be that most of the country has become less poor, with an exception of an increase in poverty in: Mustang / Manang, the Far Western Mountains, and in the central-eastern Terai (Parsa/Bara/Rautahat and Siraha/Saptari).
